@@ -59,3 +59,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Contact Information
 
 Reach Dani via <a href="https://www.linkedin.com/in/dani-renner/" target="_blank">LinkedIn</a> or <a href="mailto:danijrenner@gmail.com" target="_blank">email</a></li>.  
+
+### Sources
+
+<a href="https://aws.amazon.com/amplify/hosting/" target="_blank">Amplify</a>
