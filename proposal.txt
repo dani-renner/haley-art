@@ -1,0 +1,30 @@
+Name of Student: Dani Renner
+
+Name of Project: Art by Haley
+
+Project's Purpose or Goal: This will be an online art gallery containing art by the artist Haley Renner
+
+List the absolute minimum features the project requires to meet this purpose or goal:
+
+Show Haley's artwork with titles, pictures, and mediums
+Have a login for Haley so that she can upload her work
+Host online
+What tools, frameworks, libraries, APIs, modules and/or other resources (whatever is specific to your track, and your language) will you use to create this MVP? List them all here. Be specific.
+
+will look into different options, but probably AWS to get experience with it since many companies ask for that
+React
+Material Design for Bootstrap
+JavaScript
+CSS
+HTML
+If you finish developing the minimum viable product (MVP) with time to spare, what will you work on next? Describe these features here: Be specific.
+
+Make the art salable
+Make logins for customers if they want to save their address & payment information
+What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
+
+Shopify
+Identity
+Is there anything else you'd like your instructor to know? 
+
+I will do some things I have never done before!
