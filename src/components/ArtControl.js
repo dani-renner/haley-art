@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import ArtList from './ArtList';
 import { connect } from 'react-redux';
 import * as c from "./../actions/ActionTypes";
 import * as a from "./../actions";
