@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import NewArtForm from './NewArtForm';
 import ArtList from './ArtList';
 import { connect } from 'react-redux';
 import * as c from "./../actions/ActionTypes";
 import * as a from "./../actions";
+import { withFirestore, isLoaded } from 'react-redux-firebase';
 
 class ArtControl extends React.Component {
 
@@ -13,6 +15,12 @@ class ArtControl extends React.Component {
       selectedArt: null,
       editing: false
     };
+  }
+
+  handleAddingNewArtToList = () => {
+    const { dispatch } = this.props;
+    const action = a.toggleForm();
+    dispatch(action);
   }
   
   handleClick = () => {
@@ -28,9 +36,14 @@ class ArtControl extends React.Component {
   }
   
   render() {
-    currentlyVisibleState = <ArtList />;
+    let currentlyVisibleState = null;
+    if (ArtList){
+      currentlyVisibleState = <ArtList />;
+    }
     return (
-      {currentlyVisibleState}
+      <React.Fragment>
+        {currentlyVisibleState}
+      </React.Fragment>
     );
   }
 }
