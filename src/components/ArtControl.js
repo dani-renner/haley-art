@@ -34,12 +34,14 @@ class ArtControl extends React.Component {
       dispatch(action);
     }
   }
+
+  handleDeletingArt = (id) => {
+    this.props.firestore.delete({collection: 'art', doc: id});
+    this.setState({selectedArt: null});
+  }
   
   render() {
-    let currentlyVisibleState = null;
-    if (ArtList){
-      currentlyVisibleState = <ArtList />;
-    }
+    let currentlyVisibleState = <ArtList />;
     return (
       <React.Fragment>
         {currentlyVisibleState}
@@ -60,4 +62,4 @@ const mapStateToProps = state => {
 
 ArtControl = connect(mapStateToProps)(ArtControl);
 
-export default ArtControl;
+export default withFirestore(ArtControl);
