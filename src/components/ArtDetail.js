@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function ArtDetail(props) {
-  const { art, onClickingDelete } =props;
+  const { art, onClickingDelete }= props;
 
   return (
     <React.Fragment>
@@ -12,7 +12,7 @@ function ArtDetail(props) {
   );
 }
 
-ArtDetail.PropTypes = {
+ArtDetail.propTypes = {
   art: PropTypes.object,
   onClickingDelete: PropTypes.func
 }
