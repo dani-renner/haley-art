@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from "prop-types";
 import NewArtForm from './NewArtForm';
 import ArtList from './ArtList';
 import { connect } from 'react-redux';
-import * as c from "./../actions/ActionTypes";
+import PropTypes from "prop-types";
 import * as a from "./../actions";
 import { withFirestore, isLoaded } from 'react-redux-firebase';
 
@@ -35,6 +34,18 @@ class ArtControl extends React.Component {
     }
   }
 
+  handleChangingSelectedArt = (id) => {
+    this.props.firestore.get({collection: 'art', doc: id}).then((art) => {
+      const firestoreArt = {
+        title: art.get("title"),
+        medium: art.get("medium"),
+        dateMade: art.get("dateMade"),
+        id: art.id
+      }
+      this.setState({selectedArt: firestoreArt});
+    });
+  }
+
   handleDeletingArt = (id) => {
     this.props.firestore.delete({collection: 'art', doc: id});
     this.setState({selectedArt: null});
@@ -42,11 +53,13 @@ class ArtControl extends React.Component {
   
   render() {
     let currentlyVisibleState = <ArtList />;
-    return (
-      <React.Fragment>
-        {currentlyVisibleState}
-      </React.Fragment>
-    );
+    if (isLoaded){
+      return (
+        <React.Fragment>
+          {currentlyVisibleState}
+        </React.Fragment>
+      );
+    }
   }
 }
 
