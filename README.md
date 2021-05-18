@@ -62,6 +62,6 @@ Reach Dani via <a href="https://www.linkedin.com/in/dani-renner/" target="_blank
 
 ### Sources
 
-<a href="https://aws.amazon.com/amplify/hosting/" target="_blank">Amplify</a>
-<a href="https://www.digitalocean.com/community/tutorials/how-to-handle-routing-in-react-apps-with-react-router" target="_blank">routes in react</a>
+<a href="https://aws.amazon.com/amplify/hosting/" target="_blank">Amplify</a> <br />
+<a href="https://www.digitalocean.com/community/tutorials/how-to-handle-routing-in-react-apps-with-react-router" target="_blank">routes in react</a> <br />
 <a href="https://www.youtube.com/watch?v=8r1Pb6Ja90o&t=1180s&ab_channel=HongLy" target="_blank">uploading images</a>
