@@ -1,6 +1,7 @@
 import React from 'react';
 import NewArtForm from './NewArtForm';
 import ArtList from './ArtList';
+import ArtDetail from './ArtDetail';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 import * as a from "./../actions";
@@ -53,13 +54,23 @@ class ArtControl extends React.Component {
   
   render() {
     let currentlyVisibleState = <ArtList />;
-    if (isLoaded){
-      return (
-        <React.Fragment>
-          {currentlyVisibleState}
-        </React.Fragment>
-      );
+    let buttonText = null;
+    if (this.state.selectedArt != null){
+      currentlyVisibleState = <ArtDetail art = {this.state.selectedArt} onClickingDelete = {this.handleDeletingArt} />
+      buttonText = "Back to List";
+    }else if (this.props.formVisibleOnPage) {
+      currentlyVisibleState = <NewArtForm onNewArtCreation={this.handleAddingNewArtToList} />
+      buttonText = "Back to All Art";
+    } else {
+      currentlyVisibleState = <ArtList onArtSelection={this.handleChangingSelectedArt} />
+      buttonText = "Add Art";
     }
+    return (
+      <React.Fragment>
+        {currentlyVisibleState}
+        <button onClick={this.handleClick}>{buttonText}</button>
+      </React.Fragment>
+    );
   }
 }
 
