@@ -8,14 +8,12 @@ function ArtList(props) {
   useFirestoreConnect([
     { collection: 'art' }
   ]);
-  const art = useSelector(state => state.firestore.ordered.art);
-  if (isLoaded(art)) {
+  const artCollection = useSelector(state => state.firestore.ordered.art);
+  if (isLoaded(artCollection)) {
     return (
       <React.Fragment>
-        {/* <hr /> */}
-        <h1><i>POST LIST</i></h1>
-        <hr></hr>
-        {Object.values(props.artList).map((art) =>
+        <hr />
+        {artCollection.map((art) =>
           <Art
             whenArtClicked={props.onArtSelection}
             title={art.title}
@@ -26,12 +24,18 @@ function ArtList(props) {
         )}
       </React.Fragment>
     );
+  } else if (isEmpty(artCollection)) {
+    return (
+    <React.Fragment>
+      <h3>No Art Available</h3>
+    </React.Fragment>
+    );
   } else {
     return (
       <React.Fragment>
-      <h3>Loading...</h3>
-    </React.Fragment>
-    )
+        <h3>Loading...</h3>
+      </React.Fragment>
+    );
   }
 }
 
