@@ -14,9 +14,9 @@ function ReusableForm(props) {
           name='medium'
           placeholder='Medium(s) used:' />
         <input
-          type='date'
+          type='text'
           name='dateMade'
-          placeholder='Date Completed:' />
+          placeholder='Year Completed:' />
         <button type='submit'>{props.buttonText}</button>
       </form>
     </React.Fragment>
