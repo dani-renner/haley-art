@@ -14,7 +14,7 @@ function NewArtForm(props){
       {
         title: event.target.title.value,
         medium: event.target.medium.value,
-        dateMate: event.target.dateMate.value
+        dateMade: event.target.dateMade.value
       }
     );
   }
