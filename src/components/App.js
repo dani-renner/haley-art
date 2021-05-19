@@ -3,6 +3,7 @@ import Header from './Header';
 import ArtControl from "./ArtControl";
 import Admin from './Admin';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import './../App.css';
 
 function App() {
   return (
