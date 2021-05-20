@@ -64,7 +64,6 @@ function ReusableForm(props) {
       </form>
     </React.Fragment>
   );
-  // render(<ReusableForm/>, document.querySelector("#root"));
 };
 
 ReusableForm.propTypes = {
