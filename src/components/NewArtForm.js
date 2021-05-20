@@ -15,7 +15,9 @@ function NewArtForm(props){
         title: event.target.title.value,
         medium: event.target.medium.value,
         dateMade: event.target.dateMade.value,
-        artImage: event.target.artImage.value
+        artImage: event.target.artImage.value,
+        widthInches: event.target.widthInches.value,
+        heightInches: event.target.heightInches.value
       }
     );
   }

@@ -40,6 +40,8 @@ class ArtControl extends React.Component {
         title: art.get("title"),
         medium: art.get("medium"),
         dateMade: art.get("dateMade"),
+        widthInches: art.get("widthInches"),
+        heightInches: art.get("heightInches"),
         artImage: art.get("artImage"),
         id: art.id
       }
@@ -51,27 +53,43 @@ class ArtControl extends React.Component {
     this.props.firestore.delete({collection: 'art', doc: id});
     this.setState({selectedArt: null});
   }
-  
-  
+
   render() {
+    const auth = this.props.firebase.auth();
     let currentlyVisibleState = <ArtList />;
     let buttonText = null;
-    if (this.state.selectedArt != null){
-      currentlyVisibleState = <ArtDetail art = {this.state.selectedArt} onClickingDelete = {this.handleDeletingArt} />
-      buttonText = "Back to List";
-    }else if (this.props.formVisibleOnPage) {
-      currentlyVisibleState = <NewArtForm onNewArtCreation={this.handleAddingNewArtToList} />
-      buttonText = "Back to All Art";
-    } else {
-      currentlyVisibleState = <ArtList onArtSelection={this.handleChangingSelectedArt} />
-      buttonText = "Add Art";
+    if ((isLoaded(auth)) && (auth.currentUser == null)){
+      if (this.state.selectedArt != null){
+        currentlyVisibleState = <ArtDetail art = {this.state.selectedArt} />
+        buttonText = "Back to List";
+      } else {
+        currentlyVisibleState = <ArtList onArtSelection={this.handleChangingSelectedArt} />
+      }
+      return (
+        <React.Fragment>
+          {currentlyVisibleState}
+          <button onClick={this.handleClick}>{buttonText}</button>
+        </React.Fragment>
+      );
     }
-    return (
-      <React.Fragment>
-        {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button>
-      </React.Fragment>
-    );
+    else if ((isLoaded(auth)) && (auth.currentUser != null)){
+      if (this.state.selectedArt != null){
+        currentlyVisibleState = <ArtDetail art = {this.state.selectedArt} onClickingDelete = {this.handleDeletingArt} />
+        buttonText = "Back to List";
+      }else if (this.props.formVisibleOnPage) {
+        currentlyVisibleState = <NewArtForm onNewArtCreation={this.handleAddingNewArtToList} onCheckingAuth={this.handleCheckingAuth} />
+        buttonText = "Back to All Art";
+      } else {
+        currentlyVisibleState = <ArtList onArtSelection={this.handleChangingSelectedArt} />
+        buttonText = "Add Art";
+      }
+      return (
+        <React.Fragment>
+          {currentlyVisibleState}
+          <button onClick={this.handleClick}>{buttonText}</button>
+        </React.Fragment>
+      );
+    }
   }
 }
 

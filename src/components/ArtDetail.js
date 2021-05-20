@@ -9,6 +9,7 @@ function ArtDetail(props) {
       <hr />
       <h3>{art.title}</h3>
       <img src={art.artImage} width="max-width" height="500"/>
+      <h3>{art.widthInches}" x {art.heightInches}"</h3>
       <button onClick={()=> onClickingDelete(art.id) }>Remove</button>
     </React.Fragment>
   );

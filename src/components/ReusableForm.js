@@ -55,6 +55,14 @@ function ReusableForm(props) {
           type='text'
           name='dateMade'
           placeholder='Year Completed:' />
+        <input
+          type='number'
+          name='widthInches'
+          placeholder='Width in Inches:' />
+        <input
+          type='number'
+          name='heightInches'
+          placeholder='Height in Inches:' />
         <input type="file" onChange={handleChange} />
         <button onClick={handleUpload}>Upload</button>
         <img src={url || "https://forum.affinity.serif.com/uploads/monthly_2018_12/29978488_exampleofillysagligndashedlines.png.e3bbf2f0aa2cc4c3725e4087b5653b79.png"} alt="user's photo" width="max-width" height="500"/>
