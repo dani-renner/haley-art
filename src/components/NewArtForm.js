@@ -14,16 +14,17 @@ function NewArtForm(props){
       {
         title: event.target.title.value,
         medium: event.target.medium.value,
-        dateMade: event.target.dateMade.value
+        dateMade: event.target.dateMade.value,
+        artImage: event.target.artImage.value
       }
     );
   }
 
   return (
     <React.Fragment>
-        <ReusableForm
-        formSubmissionHandler={addArtToFirestore}
-        buttonText="Add to Gallery" />
+      <ReusableForm
+      formSubmissionHandler={addArtToFirestore}
+      buttonText="Add to Gallery" />
     </React.Fragment>
   );
 }

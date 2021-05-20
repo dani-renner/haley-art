@@ -20,7 +20,7 @@ function Signin(){
       console.log(error.message);
     });
   }
-
+  return (
   <React.Fragment>
     <h1>Sign In</h1>
     <form onSubmit={doSignIn}>
@@ -37,6 +37,7 @@ function Signin(){
     <h1>Sign Out</h1>
     <button onClick={doSignOut}>Sign out</button>
   </React.Fragment>
+  );
 }
 
 export default Signin

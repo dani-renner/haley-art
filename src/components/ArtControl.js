@@ -12,8 +12,7 @@ class ArtControl extends React.Component {
   constructor(props) {
     super(props);
     this.state ={
-      selectedArt: null,
-      editing: false
+      selectedArt: null
     };
   }
 
@@ -41,6 +40,7 @@ class ArtControl extends React.Component {
         title: art.get("title"),
         medium: art.get("medium"),
         dateMade: art.get("dateMade"),
+        artImage: art.get("artImage"),
         id: art.id
       }
       this.setState({selectedArt: firestoreArt});
@@ -51,6 +51,7 @@ class ArtControl extends React.Component {
     this.props.firestore.delete({collection: 'art', doc: id});
     this.setState({selectedArt: null});
   }
+  
   
   render() {
     let currentlyVisibleState = <ArtList />;
