@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 
-const pageTitle = styled.h1`
+const PageTitle = styled.h1`
   font-size: 24px;
   text-align: center;
 `;
@@ -10,9 +10,10 @@ const pageTitle = styled.h1`
 function Header(){
   return (
     <React.Fragment>
-      <pageTitle>
+      <PageTitle>
         <h1>Art by Haley</h1>
-      </pageTitle>
+      </PageTitle>
+      <Link to="/admin">Admin</Link>
     </React.Fragment>
   );
 }
